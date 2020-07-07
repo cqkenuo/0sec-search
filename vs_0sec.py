@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # coding=utf-8
 # python version 3.7
 # 零组资料文库离线漏洞名搜索
@@ -92,7 +92,8 @@ class search_0sec():
 if __name__ == '__main__':
     if sys.argv.__len__() < 2:
         print("""零组资料文库离线漏洞名搜索,功能：更新 、查询
-        -up:更新数据
+        -up:在线更新数据
+        -offline:离线更新数据库（根据tree.json文件更新）
         -s [keyword]:查询关键字
         """)
         exit(0)
@@ -103,3 +104,6 @@ if __name__ == '__main__':
         print('更新完成')
     if sys.argv[1] == '-s':
         _0sec.searchsqlit3(sys.argv[2])
+    if sys.argv[1] == '-offline':
+        _0sec.dump2sqlit3()
+        print('更新完成')
